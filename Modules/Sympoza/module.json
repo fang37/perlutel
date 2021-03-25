@@ -1,0 +1,13 @@
+{
+    "name": "Sympoza",
+    "alias": "sympoza",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Sympoza\\Providers\\SympozaServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
