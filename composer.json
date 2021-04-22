@@ -19,6 +19,7 @@
         "livewire/livewire": "^2.4",
         "mhmiton/laravel-modules-livewire": "^1.1",
         "nwidart/laravel-modules": "^8.2",
+        "realrashid/sweet-alert": "^3.2",
         "santigarcor/laratrust": "^6.3",
         "subfission/cas": "^4.0.0"
     },

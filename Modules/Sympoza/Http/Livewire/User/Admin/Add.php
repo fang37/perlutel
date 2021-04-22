@@ -30,11 +30,28 @@ class Add extends Component
 
     public function createUser(){
         //dd($this->first_name, $this->last_name);
-
-        Profile::create([
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
+        $this->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
         ]);
+
+        $data = Profile::where('first_name', $this->first_name)->orwhere('last_name', $this->last_name)->first();
+
+
+        if($data){
+            $this->emit('error', 'This name already in database');
+        }else{
+            Profile::create([
+                'first_name' => $this->first_name,
+                'last_name' => $this->last_name,
+            ]);
+            $this->emit('success', 'The user has been added successfully');
+            $this->emit('addUserAdminHomeRefresh');
+            $this->first_name = '';
+            $this->last_name = '';
+        }
+
+
 
     }
 }

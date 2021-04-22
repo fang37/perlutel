@@ -6,6 +6,7 @@ use Livewire\Component;
 use Modules\Sympoza\Entities\Profile;
 class Home extends Component
 {
+    protected $listeners = ['addUserAdminHomeRefresh' => '$refresh'];
     public function render()
     {
         $profiles = Profile::all();

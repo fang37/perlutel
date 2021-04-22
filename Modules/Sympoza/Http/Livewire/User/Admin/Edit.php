@@ -14,6 +14,6 @@ class Edit extends Component
     }
 
     public function editUser($id){
-        dd(Profile::where('id', $id)->first());
+
     }
 }
