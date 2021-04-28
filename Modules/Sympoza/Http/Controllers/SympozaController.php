@@ -16,17 +16,16 @@ class SympozaController extends Controller
     }
 
     public function sso_Login(){
-
-
-        if (strlen(cas()->user()) < 9){
-
+        
+        if (strlen(cas()->user()) > 9){
+            
             $user = User::where('sso_username', cas()->user())->first();
 
             if($user === null){
                 $user = User::create([
                     'sso_username' => cas()->user(),
                 ]);
-
+                
                 $user->attachRole('student');
             }
         }else{
@@ -36,12 +35,9 @@ class SympozaController extends Controller
                 $user = User::create([
                     'sso_username' => cas()->user(),
                 ]);
-
                 $user->attachRole('faculty');
             }
         }
-
-
 
         $user = User::where('sso_username', cas()->user())->firstOrFail();
 
