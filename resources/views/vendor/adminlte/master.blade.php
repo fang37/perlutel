@@ -94,13 +94,19 @@
     {{-- Livewire Script --}}
     @if(config('adminlte.livewire'))
         @if(app()->version() >= 7)
+<<<<<<< HEAD
             @include('sweetalert::alert')
+=======
+
+>>>>>>> ca08cdfe6b6e24c03d59b969e1b4dd5501698b15
             @livewireScripts
         @else
             <livewire:scripts />
 
         @endif
     @endif
+
+    @include('sweetalert::alert')
 
 
     {{-- Custom Scripts --}}

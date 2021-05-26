@@ -24,4 +24,41 @@ class UserController extends Controller
         }
 
     }
+
+    public function articleSubmission_User(){
+
+        $user = Auth::user();
+
+        if($user->hasRole('faculty')){
+            return view('sympoza::livewire.article.user.home_idx');
+        }else{
+            return redirect()->route('sympoza.sso-login');
+        }
+
+    }
+
+    public function articleSubmission_Create(){
+
+        $user = Auth::user();
+
+        if($user->hasRole('faculty')){
+            return view('sympoza::livewire.article.user.create_idx');
+        }else{
+            return redirect()->route('sympoza.sso-login');
+        }
+
+    }
+
+    public function articleSubmission_Edit($articleId){
+
+        $user = Auth::user();
+
+        if($user->hasRole('faculty')){
+            return view('sympoza::livewire.article.user.edit_idx', ['articleId' => $articleId]);
+        }else{
+            return redirect()->route('sympoza.sso-login');
+        }
+
+    }
+    
 }

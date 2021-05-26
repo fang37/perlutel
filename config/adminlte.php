@@ -232,6 +232,12 @@ return [
             'icon' => 'fas fa-fw fa-user',
             'roles' => 'faculty',
         ],
+        [
+            'text' => 'Article Submission',
+            'route'  => 'sympoza.user.article-submission',
+            'icon' => 'fas fa-fw fa-book',
+            'roles' => 'faculty',
+        ],
     ],
 
     /*
@@ -316,7 +322,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

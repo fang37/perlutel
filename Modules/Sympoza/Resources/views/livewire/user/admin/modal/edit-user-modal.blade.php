@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div wire:ignore.self class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
+                <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -11,14 +11,14 @@
             <div class="modal-body">
 
                 <div>
-                     <div class="row">
+                    <div class="row">
                         <div class="col-md-4 offset-md-0">
                             <label for="user_id">NIM</label>
                         </div>
                         <div class="col-md-8 offset-md-0">
                             <div class="form-group">
-                                <input type="text" class="form-control" wire:model="user_id" id="user_id" placeholder="Enter NIM">
-                                @error('user_id') <span class="text-danger">{{ $message }}</span>@enderror
+                                <input type="text" class="form-control" wire:model="user_id" id="user_id" readonly>
+                                @error('first_name') <span class="text-danger">{{ $message }}</span>@enderror
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" wire:click.prevent="createUser" class="btn btn-primary btn-sm" ><i class="fas fa-paper-plane"></i> Submit</button>
+                <button type="button" wire:click.prevent="updateUser({{$userId}})" class="btn btn-primary btn-sm" ><i class="fas fa-paper-plane"></i> Update</button>
             </div>
 
        </div>

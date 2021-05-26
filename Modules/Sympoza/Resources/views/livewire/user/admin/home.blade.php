@@ -13,7 +13,10 @@
             <table class="table table-striped table-sm data-table">
                 <thead>
                     <th width="5%">
-                        Number
+                        No
+                    </th>
+                    <th width="10%">
+                        NIM
                     </th>
                     <th width="20%">
                         First Name
@@ -21,7 +24,7 @@
                     <th width="20%">
                         Last Name
                     </th>
-                    <th width="45%">
+                    <th width="35%">
                     </th>
                     <th width="5%">
                         Action
@@ -35,6 +38,9 @@
                         <tr>
                             <td>
                                 {{++$number}}
+                            </td>
+                            <td>
+                                {{$profile->user_id}}
                             </td>
                             <td>
                                 {{$profile->first_name}}
