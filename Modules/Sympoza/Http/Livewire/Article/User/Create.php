@@ -84,14 +84,16 @@ class Create extends Component
         //$user = Users::where('sso_username', $this->nim)->first(); 
         $this->author_id = Auth::id();
         for($i=0; $i < $this->authorIndexs; $i++){
+            $auth_id = $i+1;
             if($this->author_desc == null){
-                $this->author_desc = $this->name[$i+1] . "[{($i+1)}]";
+                $this->author_desc = $this->name[$i+1] . "[{$auth_id}]";
             }
             else {
-                $this->author_desc = $this->author_desc . ', ' . $this->name[$i+1] . "[{($i+1)}]";  
+                $this->author_desc = $this->author_desc . ', ' . $this->name[$i+1] . "[{$auth_id}]";  
             };
             
         }
+        
         Article::create([ 
             'author_id' => $this->author_id,
             'title' => $this->title,
