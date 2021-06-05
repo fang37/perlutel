@@ -12,8 +12,8 @@
                         <b>Edit Submission {{$articleId}} </b>
                     </div>
                     <div class="card-body">
-                        @livewire(resource_path('article.user.edit'), ['articleId' => $articleId])
-                        @livewire('sympoza::article.user.edit')
+                        @livewire('sympoza::article.user.edit', ['articleId' => $articleId])
+                        
                         <!-- ['articleId' => $articleId ] -->
                     </div>
                 </div>

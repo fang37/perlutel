@@ -24,9 +24,9 @@ Route::prefix('sympoza')->group(function() {
      /**
      * Article Submission
      */
-    Route::get('/article-submission', 'UserController@articleSubmission_User')->name('sympoza.user.article-submission');
-    Route::get('/article-submission/create', 'UserController@articleSubmission_Create')->name('sympoza.user.article-submission.create');
-    Route::get('/article-submission/edit/{id}', 'UserController@articleSubmission_Edit')->name('sympoza.user.article-submission.edit');
+    Route::get('/article-submission', 'ArticlesController@articleSubmission_User')->name('sympoza.user.article-submission');
+    Route::get('/article-submission/create', 'ArticlesController@articleSubmission_Create')->name('sympoza.user.article-submission.create');
+    Route::get('/article-submission/edit/{id}', 'ArticlesController@articleSubmission_Edit')->name('sympoza.user.article-submission.edit');
     //Route::get('/article-submission/edit/{id}', 'App\Http\Livewire\Article\User\Edit');
     //Route::get(uri: '/article-submission/edit/{id}', action: Edit::class);
    });

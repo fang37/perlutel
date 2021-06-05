@@ -3,7 +3,9 @@
 namespace Modules\Sympoza\Http\Livewire\Article\User;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Modules\Sympoza\Entities\Author;
 use Modules\Sympoza\Entities\Article;
 use Modules\Sympoza\Entities\Users;
@@ -21,9 +23,20 @@ class Create extends Component
     public $author_desc;
     public $link;
     public $authorIndexs = 1;
+
+    use WithFileUploads;
+    public $file;
+
     //protected $listeners = ['addUserComponent' => 'addUser'];
     protected $listeners = ['articleCreateRefresh' => '$refresh'];
     
+    public function updatedFile()
+    {
+        $this->validate([
+            'file' => 'file',
+        ]);
+    }
+
     public function addAuthor(){
         $this->authorIndexs++;
         $this->emit('articleCreateRefersh');
@@ -67,6 +80,7 @@ class Create extends Component
             'title' => 'required',
             'abstract' => 'required',
             'keyword' => 'required',
+            'file' => 'required',
         ]);
         
         for($i=0; $i < $this->authorIndexs; $i++){
@@ -94,13 +108,19 @@ class Create extends Component
             
         }
         
+        $this->link = "articles/{$this->title}.pdf";
+
         Article::create([ 
             'author_id' => $this->author_id,
             'title' => $this->title,
             'abstract' => $this->abstract,
             'keyword' => $this->keyword,
             'author_desc' => $this->author_desc,
+            'link' => $this->link,
             ]);
+
+        $this->file->storeAs('articles',"{$this->title}.pdf");
+        //$this->file->storeAs($this->link);
 
         $this->emit('success', 'The user has been added successfully');
         return redirect('/sympoza/article-submission');

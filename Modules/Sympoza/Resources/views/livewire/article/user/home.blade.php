@@ -4,11 +4,11 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{$article->title}}</h5>
-                        <button wire:click="$emit('getArticle', {{$article->id}})" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-xs" style ="color:black" aria-hidden="true"></i> Edit wire</button>
-                        <a href="{{ route('sympoza.user.article-submission.edit', $article->id) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-xs" style ="color:black" aria-hidden="true"></i> Edit2</a>
-                        <a href="#" class="badge bg-danger float-right mr-2"><i class="fas fa-file-pdf"></i>  Download</a>
+                        <h5 class="card-title"><b>{{$article->title}}</b></h5>
+                        <a href="{{ route('sympoza.user.article-submission.edit', $article->id) }}" class="badge bg-xs bg-warning ml-2"><i class="fa fa-edit fa-xs" style ="color:black" aria-hidden="true"></i> Edit</a>
+                        <a wire:click="download('{{ $article->link }}')" class="badge bg-danger float-right mr-2"><i class="fas fa-file-pdf"></i>  Download</a>
                         <p class="card-text">{{$article->author_desc}}</p>
+                        <!-- <a href="#" wire:click="$emit('addAuthorComponent')">modal</a> -->
                         <a data-toggle="collapse" href="#collapseAbstract{{$loop->index}}" role="button" aria-expanded="false" aria-controls="collapseAbstract">
                             Abstract
                         </a>
