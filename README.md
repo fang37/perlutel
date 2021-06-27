@@ -60,3 +60,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # perlutel
+# Cara Test Project
+1. git clone https://github.com/fang37/perlutel sympoza
+2. ubah nama file "xenv" -> ".env" (folder sympoza)
+3. composer install (di vs code)
+4. php artisan key:generate
+5. (*kalo database belum ada)
+php artisan tinker (enter)
+> DB::statement('CREATE DATABASE sympoza');
+6. php artisan migrate
+7. php artisan db:seed (seed roles student & faculty)
+8. php artisan serve
+
