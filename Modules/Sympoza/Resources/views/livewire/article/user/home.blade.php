@@ -43,6 +43,10 @@
                 </div>
             </div>
         @endforeach
+        @if(count($articles) < 1)
+        <p class="text-center">anda belum membuat submission</p>
+        @endif
+        
 
     </div>
 </div>
