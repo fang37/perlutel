@@ -12,7 +12,7 @@
                         <a data-toggle="collapse" href="#collapseAbstract{{$loop->index}}" role="button" aria-expanded="false" aria-controls="collapseAbstract">
                             Abstract
                         </a>
-                        <a href="" wire:click="deleteId('{{ $article->id }}')" class="badge bg-danger float-right" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash-alt" aria-hidden="true"></i>  Delete</a>
+                        <a href="" wire:click="deleteId('{{ $article->id }}')" class="badge bg-danger float-right" data-toggle="modal" data-target="#deleteModal{{$article->id}}"><i class="fas fa-trash-alt" aria-hidden="true"></i>  Delete</a>
                         <div class="collapse" id="collapseAbstract{{$loop->index}}">
                         <div class="card card-body">
                             {{$article->abstract}}
@@ -23,7 +23,7 @@
             </div>
 
              <!-- Modal -->
-             <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+             <div wire:ignore.self class="modal fade" id="deleteModal{{$article->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

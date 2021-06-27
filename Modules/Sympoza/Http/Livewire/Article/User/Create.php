@@ -84,7 +84,7 @@ class Create extends Component
         ]);
         
         for($i=0; $i < $this->authorIndexs; $i++){
-            $dataAvailable = Author::where('nim', $this->nim)->first();
+            $dataAvailable = Author::where('nim', $this->nim[$i+1])->first();
             if(!$dataAvailable){
                 Author::create([
                     'name' => $this->name[$i+1],
