@@ -1,4 +1,3 @@
-# PERLUTEL Kelompok 1
 # Cara Test Project
 1. git clone https://github.com/fang37/perlutel sympoza
 2. ubah nama file "xenv" -> ".env" (folder sympoza)
@@ -10,6 +9,13 @@ php artisan tinker (enter)
 6. php artisan migrate
 7. php artisan db:seed (seed roles student & faculty)
 8. php artisan serve
+
+# PERLUTEL Kelompok 1 (Article Submission)
+-M. Irfan Ghifari(1801366)
+-Ariq Nurmansyah (1807210)
+-Lumban Toruan Ebin(1805130)
+-Navis Abdullah(1806464)
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
