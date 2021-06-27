@@ -3,9 +3,7 @@
 2. ubah nama file "xenv" -> ".env" (folder sympoza)
 3. composer install (di vs code)
 4. php artisan key:generate
-5. (*kalo database belum ada)
-php artisan tinker (enter)
-> DB::statement('CREATE DATABASE sympoza');
+5. buat database "sympoza"
 6. php artisan migrate
 7. php artisan db:seed (seed roles student & faculty)
 8. php artisan serve
