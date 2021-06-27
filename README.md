@@ -1,3 +1,17 @@
+# perlutel
+# Cara Test Project
+1. git clone https://github.com/fang37/perlutel sympoza
+2. ubah nama file "xenv" -> ".env" (folder sympoza)
+3. composer install (di vs code)
+4. php artisan key:generate
+5. (*kalo database belum ada)
+php artisan tinker (enter)
+> DB::statement('CREATE DATABASE sympoza');
+6. php artisan migrate
+7. php artisan db:seed (seed roles student & faculty)
+8. php artisan serve
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -59,16 +73,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# perlutel
-# Cara Test Project
-1. git clone https://github.com/fang37/perlutel sympoza
-2. ubah nama file "xenv" -> ".env" (folder sympoza)
-3. composer install (di vs code)
-4. php artisan key:generate
-5. (*kalo database belum ada)
-php artisan tinker (enter)
-> DB::statement('CREATE DATABASE sympoza');
-6. php artisan migrate
-7. php artisan db:seed (seed roles student & faculty)
-8. php artisan serve
 
