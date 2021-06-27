@@ -4,6 +4,7 @@ namespace Modules\Sympoza\Http\Livewire\Article\User;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Livewire\Component;
 use Modules\Sympoza\Entities\Author;
 use Modules\Sympoza\Entities\Article;
@@ -12,17 +13,14 @@ use EmptyIterator;
 class Home extends Component
 {
     public $author_id;
+    public $delete_id = '';
     
     //protected $listeners = ['articleHomeRefresh' => '$refresh'];
-    protected $listeners = ['getArticle' => 'getArticle'];
-
     public function render()
     {
         $this->author_id = Auth::id();
         $articles = Article::where('author_id', $this->author_id)->get();
         $author = Author::all();
-        //$articles = Article::all();
-        //dd($articles);
 
         return view('sympoza::livewire.article.user.home', compact('author', 'articles'));
     }
@@ -37,14 +35,23 @@ class Home extends Component
         return Storage::download($link);
     }
 
-    public function getArticle($id)
+    public function deleteId($id)
     {
-        $article = Article::where('id', $id)->first();
-        $this->emit("editArticle", $article);
-        //dd($article);
-        //dd($article->title);
-        //return view('sympoza::livewire.article.user.edit', compact('articles'));
-        //return redirect('sympoza/article-submission/edit', ['article'=>$article]);
-        //return redirect()->route('sympoza/article-submission/edit' )->with( [ 'articles' => $articles ] );
+        $this->delete_id = $id;
+    }
+
+    public function delete()
+    {
+        $article = Article::where('id', $this->delete_id)->first();
+
+        if($article) {
+            $article->delete();
+        }
+
+        //flash message
+        session()->flash('message', 'Submission Berhasil Dihapus.');
+
+        //redirect
+        // return redirect()->route('post.index');
     }
 }

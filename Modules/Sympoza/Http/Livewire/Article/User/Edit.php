@@ -7,12 +7,10 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Modules\Sympoza\Entities\Author;
 use Modules\Sympoza\Entities\Article;
-use Modules\Sympoza\Entities\Users;
 
 class Edit extends Component
 {
     public $articleId;
-    public $articles;
     public $author_id;
     public $title;
     public $abstract;
@@ -27,18 +25,8 @@ class Edit extends Component
     public function render()
     {   
         $author = Author::all();
-        //$article = Article::where('id', $this->id)->first();
-        //$article = Article::find($this->articleId);
         $article = Article::where('id', $this->articleId)->first();
-        //dd($this->articles);
-        //return view('sympoza::livewire.article.user.edit', compact('author', 'authorIndexs'));
         return view('sympoza::livewire.article.user.edit', compact('author', 'article'));
-    }
-
-    public function editArticle($article){
-        dd("Shafira");
-        //$emit('getArticle', $id);
-        //$this->articles = $article;
     }
 
     public function mount(){
@@ -82,11 +70,6 @@ class Edit extends Component
         $this->emit('success', 'The submission has been edited successfully');
         session()->flash('message', 'The submission has been edited successfully');
         return redirect()->to('/sympoza/article-submission');
-        //$this->emit('articleCreateRefresh');
-            //return redirect('/sympoza/article-submission/create')->with('status', 'Data berhasil ditambahkan');
-            //$this->user_id = '';
-        //$this->first_name = '';
-        //$this->last_name = '';
     }
 }
 

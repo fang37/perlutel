@@ -9,7 +9,7 @@
                 <div class="card">
 
                     <div class="card-header">
-                        <b>Edit Submission {{$articleId}} </b>
+                        <b>Edit Submission</b>
                     </div>
                     <div class="card-body">
                         @livewire('sympoza::article.user.edit', ['articleId' => $articleId])

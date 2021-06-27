@@ -17,12 +17,14 @@ class CreateArticleTable extends Migration
             $table->id();
             $table->string('author_id');
             $table->string('title');
-            $table->string('abstract');
+            $table->text('abstract');
             $table->string('keyword');
             $table->string('author_desc');
-            $table->text('link')->nullable(false)->change();
+            $table->text('link')->nullable(false);
             $table->timestamps();
         });
+
+        
     }
 
     /**
