@@ -1,4 +1,4 @@
-# perlutel
+# PERLUTEL Kelompok 1
 # Cara Test Project
 1. git clone https://github.com/fang37/perlutel sympoza
 2. ubah nama file "xenv" -> ".env" (folder sympoza)
