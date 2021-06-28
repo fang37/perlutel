@@ -74,7 +74,9 @@ class Edit extends Component
         }
         else {
             $this->link = "articles/{$this->title}.pdf";
-            Storage::move("{$this->oldLink}", "articles/$this->title.pdf");
+            if($this->link <> $this->oldLink){
+                Storage::move("{$this->oldLink}", "articles/$this->title.pdf");
+            }
         }
 
         Article::find($id)->update([ 
@@ -84,6 +86,9 @@ class Edit extends Component
         $this->emit('success', 'The submission has been edited successfully');
         session()->flash('message', 'The submission has been edited successfully');
         return redirect()->to('/sympoza/article-submission');
+    }
+    public function cancel(){
+        return redirect('/sympoza/article-submission');
     }
 }
 

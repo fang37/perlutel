@@ -143,5 +143,27 @@
                     </div>
             </div>
                 <button type="button" wire:click.prevent="createSubmission" class="btn btn-success btn-md float-right" ><i class="fas fa-paper-plane"></i> Submit</button>
+                <a href="/sympoza/article-submission" class="btn text-white btn-warning btn-md float-right mr-2"  data-toggle="modal" data-target="#cancelModal" >Cancel</a>
+
+            <!-- Modal -->
+             <div wire:ignore.self class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cancelModalLabel">Cancel Confirm</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true close-btn">×</span>
+                            </button>
+                        </div>
+                       <div class="modal-body">
+                            <p>Are you sure want to cancel submission ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">No</button>
+                            <button type="button" wire:click.prevent="cancel()" class="btn btn-danger close-modal" data-dismiss="modal">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         
     </div>
