@@ -134,8 +134,9 @@
 
                     <div class="row">
                         <div class="">
-                            <label for="exampleFormControlFile1">Article Upload</label>
-                            <input type="file" class="form-control-file" wire:model="file" id="exampleFormControlFile1">
+                            <label class="mb-0" for="exampleFormControlFile1">Article Upload</label>
+                            <div class="text-danger h-30 align-top">*format .pdf</div>
+                            <input type="file" class="form-control-file d-inline" wire:model="file" id="exampleFormControlFile1">
                             @error('file') <span class="error">{{ $message }}</span> @enderror
                             <div wire:loading wire:target="file">Uploading...</div>
                         </div>
