@@ -3,6 +3,7 @@
 namespace Modules\Sympoza\Http\Livewire\Article\User;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Modules\Sympoza\Entities\Author;
@@ -21,6 +22,7 @@ class Edit extends Component
 
     use WithFileUploads;
     public $file;
+    public $oldLink;
 
     public function render()
     {   
@@ -55,17 +57,29 @@ class Edit extends Component
             'abstract' => 'required',
             'keyword' => 'required',
         ]);
-               
+          
+        if( is_null($this->file) ) {
+            $this->oldLink = $this->link;
+        }
+
         Article::find($id)->update([ 
             'title' => $this->title,
             'abstract' => $this->abstract,
             'keyword' => $this->keyword,
-            'link' => $this->link,
             ]);
 
         if($this->file) {
             $this->file->storeAs('articles',"{$this->title}.pdf");
+            $this->link = "articles/{$this->title}.pdf";
         }
+        else {
+            $this->link = "articles/{$this->title}.pdf";
+            Storage::move("{$this->oldLink}", "articles/$this->title.pdf");
+        }
+
+        Article::find($id)->update([ 
+            'link' => $this->link,
+            ]);
 
         $this->emit('success', 'The submission has been edited successfully');
         session()->flash('message', 'The submission has been edited successfully');
