@@ -16,14 +16,14 @@ class CreateSympozaProfileTable extends Migration
         Schema::create('sympoza_profile', function (Blueprint $table) {
             $table->id();
             $table->char('user_id')->unique();
-            $table->string('sso_identity')->nullable(false);;
+            $table->string('sso_identity')->nullable();;
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email')->nullable(false);;
-            $table->string('afiliation')->nullable(false);;
-            $table->string('status')->nullable(false);;
-            $table->string('address')->nullable(false);;
-            $table->string('phone_number')->nullable(false);;
+            $table->string('email')->nullable();;
+            $table->string('afiliation')->nullable();;
+            $table->string('status')->nullable();;
+            $table->string('address')->nullable();;
+            $table->string('phone_number')->nullable();;
             $table->timestamps();
         });
     }
