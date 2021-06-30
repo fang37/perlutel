@@ -23,6 +23,7 @@ class Create extends Component
     public $author_desc;
     public $link;
     public $authorIndexs = 1;
+    public $review;
 
     use WithFileUploads;
     public $file;
@@ -109,6 +110,7 @@ class Create extends Component
         }
         
         $this->link = "articles/{$this->title}.pdf";
+        $this->review = 0;
 
         Article::create([ 
             'author_id' => $this->author_id,
@@ -117,6 +119,7 @@ class Create extends Component
             'keyword' => $this->keyword,
             'author_desc' => $this->author_desc,
             'link' => $this->link,
+            'review' => $this->review,
             ]);
 
         $this->file->storeAs('articles',"{$this->title}.pdf");

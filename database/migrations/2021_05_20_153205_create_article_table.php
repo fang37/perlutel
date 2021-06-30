@@ -21,6 +21,7 @@ class CreateArticleTable extends Migration
             $table->string('keyword');
             $table->string('author_desc');
             $table->text('link')->nullable(false);
+            $table->boolean('review');
             $table->timestamps();
         });
 
